@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿❤️‍?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 1s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .waves {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 200px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23233554' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,144C672,117,768,75,864,64C960,53,1056,75,1152,96C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            width: 90%;
+            background: rgba(26, 26, 46, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin: 2rem auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            margin-bottom: 2rem;
+        }
+
+        .flowers {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .flower {
+            font-size: 4rem;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 1.6;
+        }
+
+        .moon-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .moon {
+            font-size: 4rem;
+            animation: glow 2s infinite;
+        }
+
+        .star-emoji {
+            font-size: 2rem;
+            animation: twinkle 1.5s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px #fff; }
+            50% { text-shadow: 0 0 40px #fff; }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+        }
+
+        .btn-yes {
+            background: #ff69b4;
+            color: white;
+            border: 2px solid #ff69b4;
+        }
+
+        .btn-no {
+            background: transparent;
+            color: white;
+            border: 2px solid #fff;
+        }
+
+        #playlist {
+            margin-top: 2rem;
+            color: #ff69b4;
+            font-style: italic;
+            text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+            cursor: pointer;
+        }
+
+        .second-page {
+            display: none;
+            min-height: 100vh;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .love-message {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 2s ease-in;
+        }
+
+        .thank-you {
+            color: #ff69b4;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .visible {
+            display: block !important;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="waves"></div>
+    
+    <div class="container" id="first-page">
+        <h1>¡Feliz San Valentín¡</h1>
+        
+        <div class="flowers">
+            
+            <div class="flower">🌷</div>
+            <div class="flower">🌻</div>
+            <div class="flower">🌷</div>
+            <div class="flower">🌻</div>
+            <div class="flower">🌷</div>
+            <div class="flower">🌻</div>
+        
+        </div>
+
+        <div class="message">
+            <p class="glow">¿Qué decir? No sé, pero lo intentaré un poco, aunque no prometo nada.</p>
+            <p class="glow">Te quiero, señorita, y no hay más nada. No hay juegos, ni trampas, ni promesas en papel dorado. Solo eso, solo esto, un </p>
+            <p class="glow">montón de letras y un suspiro. Deberías entender mejor muchas cosas, pero a veces no ves más allá, te encierras en un </p>
+            <p class="glow">mundo de sombras, cuando podrías pintar la luz. Tienes que ser más de lo que eres, pero sé que es fácil alardear, soltar </p>
+            <p class="glow">palabras como pólvora y olvidar que el fuego quema. Guíate por acciones desmedidas, sin esperar nada, sin aferrarte a lo que </p>
+            <p class="glow">pesa. Yo te veré algún día, quizás en otro tiempo. Pero no te confundas, no esperes nada.</p>
+        </div>
+
+        <div class="moon-container">
+            <div class="star-emoji">⭐</div>
+            <div class="moon">🌙</div>
+            <div class="star-emoji">⭐</div>
+        </div>
+
+
+
+            </div>
+            <div id="audioPlayer">
+              <audio id="myAudio" controls loop>
+                <source src="Y2meta.app - TE QUIERO- (Video Oficial) (128 kbps).M4A" type="audio/mpeg">
+                Tu navegador no soporta la etiqueta de audio.
+              </audio>
+            </div>
+          </div>
+
+
+
+
+          <script src="js/script.js"></script>
+</body>
+</html>
+
+
+
